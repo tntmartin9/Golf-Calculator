@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Calculator</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            background-color: rgb(79, 200, 79);
+        }
+
+        #menuButton {
+            position: absolute;
+            background-color: black;
+            top: 15px;
+            left: 35px;
+            width: 80px;
+            height: 70px;
+            padding-top: 10px;
+            color:aqua;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #menu {
+            position: absolute;
+            background-color: rgb(58, 163, 58);
+            top: 15px;
+            left: 15px;
+            width: 20px;
+            height: 930px
+        }
+
+        #style {
+            position: relative;
+            background-color: rgb(29, 103, 29);
+            width: 100%;
+            height: 80px;
+            color:aqua;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            cursor: crosshair;
+            font-size: 0%;
+        }
+
+        #addPlayer {
+            position: absolute;
+            left: 60px;
+            top: 300px;
+            color:aqua;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            cursor: crosshair;
+        }
+
+        #changeStyleMenu {
+            position: absolute;
+            background-color: rgba(31, 33, 31, 0.607);
+            top: 120px;
+            left: 60px;
+            width: 336px;
+            height: 400px;
+            display: none;  
+        }
+
+        #darkTheme, #brightTheme, #colorfulTheme, #normalTheme {
+            position: relative;
+            background-color: rgb(41, 46, 41);
+            color: white;
+            width: 330px;
+            height: 80px;
+            border: 3px dashed blue;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            cursor: crosshair;
+        }
+
+        #bob {
+            background-color: rgba(79, 200, 79, 0);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="addPlayer">
+    <h1 id="bob">Golf Score Calculator</h1>
+    <div id="bob">
+        <label for="player-name">Player Name:</label>
+        <input type="text" id="player-name">
+        <button onclick="addPlayer()">Add Player</button>
+    </div>
+</br>
+    <table id="bob">
+        <thead>
+            <tr>
+                <th id="bob">Player Name</th>
+                <th id="bob">Score</th>
+                <th id="bob">Remove</th>
+            </tr>
+        </thead>
+        <tbody id="player-scores">
+        </tbody>
+    </table>
+</div>
+
+<div id="menuButton" onclick="openCloseMenu();">open/close menu</div>
+<div id="menu">
+    <div id="style" onclick="openChangeStyleMenu();">Change Colors</div>
+</div>
+
+<div id="changeStyleMenu">
+    <div id="darkTheme" onclick="enableDarkTheme();">Dark Theme</div>
+    <div id="brightTheme" onclick="enableBrightTheme()">Bright Theme</div>
+    <div id="colorfulTheme" onclick="enableColorfulTheme()">Colorful Theme</div>
+    <div id="normalTheme" onclick="enableNormalTheme()">Normal Theme</div>
+</div>
+    
+    <script src="golf-calculator.js"></script>
+
+    <style>
+    </style>
+</body>
+</html>
