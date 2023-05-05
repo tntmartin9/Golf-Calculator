@@ -37,7 +37,7 @@ document.getElementById("changeStyleMenu").style.display = "none";
 function enableBrightTheme() {
 body.style.backgroundColor = 'white';
 document.getElementById("menu").style.backgroundColor = "grey";
-document.getElementById("addPlayer").style.backgroundColor = "white";
+document.getElementById("addPlayer").style.backgroundColor = "grey";
 document.getElementById("bob").style.backgroundColor = "white";
 document.getElementById("changeStyleMenu").style.display = "none";
 }
