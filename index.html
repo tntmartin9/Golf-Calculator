@@ -1,138 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golf Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards</title>
 
     <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-            background-color: rgb(79, 200, 79);
-        }
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-        #menuButton {
-            position: absolute;
-            background-color: black;
-            top: 15px;
-            left: 35px;
-            width: 80px;
-            height: 70px;
-            padding-top: 10px;
-            color:aqua;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
-        }
+.flashcard-container {
+  perspective: 1000px; /* Depth effect for 3D transforms */
+}
 
-        #menu {
-            position: absolute;
-            background-color: rgb(58, 163, 58);
-            top: 15px;
-            left: 15px;
-            width: 20px;
-            height: 930px
-        }
+.flashcard {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s;
+}
 
-        #style {
-            position: relative;
-            background-color: rgb(29, 103, 29);
-            width: 100%;
-            height: 80px;
-            color:aqua;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
-            cursor: crosshair;
-            font-size: 0%;
-        }
+.front,
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  border-radius: 8px;
+}
 
-        #addPlayer {
-            position: absolute;
-            left: 60px;
-            top: 300px;
-            color:aqua;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
-            cursor: crosshair;
-        }
+.back {
+  display: none; /* Initially hidden */
+  transform: rotateY(180deg);
+}
 
-        #changeStyleMenu {
-            position: absolute;
-            background-color: rgba(31, 33, 31, 0.607);
-            top: 120px;
-            left: 60px;
-            width: 336px;
-            height: 400px;
-            display: none;  
-        }
-
-        #darkTheme, #brightTheme, #colorfulTheme, #normalTheme {
-            position: relative;
-            background-color: rgb(41, 46, 41);
-            color: white;
-            width: 330px;
-            height: 80px;
-            border: 3px dashed blue;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
-            cursor: crosshair;
-        }
-
-        #bob {
-            background-color: rgba(79, 200, 79, 0);
-        }
-
-
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
     </style>
 </head>
 <body>
+  <div class="flashcard-container">
+    <!-- Flashcards will be generated here dynamically -->
+  </div>
 
-<div id="addPlayer">
-    <h1 id="bob">Golf Score Keeper</h1>
-    <h2>Hi Zach 🙂</h2>
-    <div id="bob">
-        <label for="player-name">Player Name:</label>
-        <input type="text" id="player-name">
-        <button onclick="addPlayer()">Add Player</button>
-    </div>
-</br>
-    <table id="bob">
-        <thead>
-            <tr>
-                <th id="bob">Player Name</th>
-                <th id="bob">Score</th>
-                <th id="bob">Remove</th>
-            </tr>
-        </thead>
-        <tbody id="player-scores">
-        </tbody>
-    </table>
-</div>
-
-<div id="menuButton" onclick="openCloseMenu();">open/close menu</div>
-<div id="menu">
-    <div id="style" onclick="openChangeStyleMenu();">Change Colors</div>
-</div>
-
-<div id="changeStyleMenu">
-    <div id="darkTheme" onclick="enableDarkTheme();">Dark Theme</div>
-    <div id="brightTheme" onclick="enableBrightTheme()">Bright Theme</div>
-    <div id="colorfulTheme" onclick="enableColorfulTheme()">Colorful Theme</div>
-    <div id="normalTheme" onclick="enableNormalTheme()">Normal Theme</div>
-</div>
-    
-    <script src="golf-calculator.js"></script>
-
-    <style>
-    </style>
+  <script src="script.js"></script>
 </body>
 </html>
