@@ -1,119 +1,76 @@
+const flashcardData = [
+  {
+    front: 'a',
+    back: '1',
+  },
+  {
+    front: 'b',
+    back: '2',
+  },
+  {
+    front: 'c',
+    back: '3',
+  },
+  {
+    front: 'd',
+    back: '4',
+  },
+  {
+    front: 'e',
+    back: '5',
+  },
+  {
+    front: 'f',
+    back: '6',
+  },
+  {
+    front: 'g',
+    back: '7',
+  },
+  {
+    front: 'h',
+    back: '8',
+  },
+  {
+    front: 'i',
+    back: '9',
+  },
+  {
+    front: 'j',
+    back: '10',
+  },
+];
 
-let menu = false;
-let name;
+function createFlashcards() {
+  const flashcardContainer = document.querySelector('.flashcard-container');
 
-function openCloseMenu() {
-    if (menu == true) {
-    document.getElementById("menu").style.width = "20px";
-    document.getElementById("menuButton").style.left = "35px";
-    document.getElementById("style").style.fontSize = "0px";
-    menu = false;
-    console.log("menu is open " + menu);
+  flashcardData.forEach((data) => {
+    const card = document.createElement('div');
+    card.classList.add('flashcard');
     
-    } else if (menu == false) {
-    document.getElementById("menu").style.width = "240px";
-    document.getElementById("menuButton").style.left = "250px";
-    document.getElementById("style").style.fontSize = "35px";
-    menu = true;
-    console.log("menu is open " + menu);
-}
-}
+    const frontSide = document.createElement('div');
+    frontSide.classList.add('front');
+    frontSide.innerHTML = `
+      <h2>${data.front}</h2>
+    `;
 
-const body = document.querySelector('*');
+    const backSide = document.createElement('div');
+    backSide.classList.add('back');
+    backSide.innerHTML = `
+      <h2>${data.back}</h2>
+    `;
 
-function openChangeStyleMenu() {
-  document.getElementById("changeStyleMenu").style.display = "inline";
-  openCloseMenu();
-}
+    card.appendChild(frontSide);
+    card.appendChild(backSide);
 
-function enableDarkTheme() {
-// Change the background color
-body.style.backgroundColor = 'black';
-document.getElementById("menu").style.backgroundColor = "grey";
-document.getElementById("addPlayer").style.backgroundColor = "rgb(10, 115, 115)";
-document.getElementById("bob").style.backgroundColor = "rgb(10, 115, 115)";
-document.getElementById("changeStyleMenu").style.display = "none";
-}
-function enableBrightTheme() {
-body.style.backgroundColor = 'white';
-document.getElementById("menu").style.backgroundColor = "grey";
-document.getElementById("addPlayer").style.backgroundColor = "grey";
-document.getElementById("bob").style.backgroundColor = "white";
-document.getElementById("changeStyleMenu").style.display = "none";
-}
-function enableColorfulTheme() {
-body.style.backgroundColor = 'black';
-document.getElementById("menu").style.backgroundColor = "red";
-document.getElementById("addPlayer").style.backgroundColor = "blue";
-document.getElementById("addPlayer").style.color = "white";
-document.getElementById("bob").style.backgroundColor = "blue";
-document.getElementById("changeStyleMenu").style.display = "none";
-}
-function enableNormalTheme() {
-body.style.backgroundColor = 'rgb(79, 200, 79)';
-document.getElementById("menu").style.backgroundColor = "rgb(58, 163, 58)";
-document.getElementById("addPlayer").style.backgroundColor = "rgb(79, 200, 79)";
-document.getElementById("bob").style.backgroundColor = "rgb(79, 200, 79)";
-document.getElementById("changeStyleMenu").style.display = "none";
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+
+    flashcardContainer.appendChild(card);
+  });
 }
 
-
-//let counter = 0;
-const players = [];
-
-function addPlayer() {
-	const playerName = document.getElementById("player-name").value;
-	if (!playerName) {
-		alert("Please enter a player name.");
-		return;
-	}
-
-	const player = {
-		name: playerName,
-		score: 0
-	};
-
-	players.push(player);
-	renderPlayers();
-}
-
-function removePlayer(index) {
-	players.splice(index, 1);
-	renderPlayers();
-}
-
-function updateScore(index, score) {
-	players[index].score = score;
-}
-
-function renderPlayers() {
-	const tableBody = document.getElementById("player-scores");
-	tableBody.innerHTML = "";
-
-	players.forEach((player, index) => {
-		const row = document.createElement("tr");
-
-		const nameCell = document.createElement("td");
-		nameCell.textContent = player.name;
-		row.appendChild(nameCell);
-
-		const scoreCell = document.createElement("td");
-		const scoreInput = document.createElement("input");
-		scoreInput.type = "number";
-		scoreInput.value = player.score;
-		scoreInput.addEventListener("change", () => updateScore(index, scoreInput.value));
-		scoreCell.appendChild(scoreInput);
-		row.appendChild(scoreCell);
-
-		const removeCell = document.createElement("td");
-		const removeButton = document.createElement("button");
-		removeButton.textContent = "Remove";
-		removeButton.addEventListener("click", () => removePlayer(index));
-		removeCell.appendChild(removeButton);
-		row.appendChild(removeCell);
-
-		tableBody.appendChild(row);
-	});
-}
+createFlashcards();
 /*newDiv.style.backgroundColor = "green";
 newDiv.style.height = "80px";*/
