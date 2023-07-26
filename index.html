@@ -6,7 +6,7 @@
   <title>Flashcards</title>
 
     <style>
-    body {
+   body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +47,24 @@
 
 .flashcard.flipped {
   transform: rotateY(180deg);
+}
+
+/* Media query for iPhone XR or similar screen size */
+@media (max-width: 414px) {
+  .flashcard {
+    width: 80vw;
+    height: 60vw;
+  }
+
+  .front h2,
+  .back h2 {
+    font-size: 1.5rem;
+  }
+
+  .front p,
+  .back p {
+    font-size: 1rem;
+  }
 }
     </style>
 </head>
